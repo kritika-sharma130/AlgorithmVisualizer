@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Selection sort</title>
+    <link href="../cssfiles/selection.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fruktur&family=Libre+Baskerville:wght@700&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="overlay"></div>
+    <section class="header">
+      <i class="fa fa-bars" id="menu" aria-hidden="true"></i>
+      <h1 class="heading">Selection Sort Visualizer</h1>
+    </section>
+    <section id="about">
+      The selection sort algorithm sorts an array by repeatedly finding the
+      minimum element (considering ascending order) from unsorted part and
+      putting it at the beginning. The algorithm maintains two subarrays in a
+      given array. 1) The subarray which is already sorted. 2) Remaining
+      subarray which is unsorted. In every iteration of selection sort, the
+      minimum element (considering ascending order) from the unsorted subarray
+      is picked and moved to the sorted subarray. Time Complexity: O(n2) as
+      there are two nested loops. Auxiliary Space: O(1)
+    </section>
+    <section class="container"><div class="sub-container"></div></section>
+    <section class="components">
+      <button
+        class="generateButtonClass"
+        onclick="generate()"
+        id="generateButtonId"
+      >
+        Generate New Array
+      </button>
+      <button
+        class="sortButtonClass"
+        onclick="SelectionSort()"
+        id="sortButtonId"
+      >
+        Sort
+      </button>
+      <button id="resetButtonId" class="generateButtonClass">Reset</button>
+
+      <input
+        type="number"
+        id="inputArraySize"
+        placeholder="Enter number of elements"
+      />
+      <input type="number" id="inputSpeed" placeholder="Enter Speed (400ms)" />
+    </section>
+  </body>
+
+  <!-- linking index.js -->
+  <script src="../jsfiles/selection.js"></script>
+</html>
