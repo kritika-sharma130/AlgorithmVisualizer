@@ -40,6 +40,24 @@ body {
   flex: 1;
   text-decoration: underline;
 }
+.color-chart {
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 30px;
+}
+.color-description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.color-box {
+  width: 30px;
+  height: 10px;
+  margin-right: 10px;
+}
+
 #about {
   background-color: white;
   height: 100vh;
@@ -70,7 +88,7 @@ body {
   transition: 0.2s all ease;
 }
 
-.bar_id {
+.bar-id {
   position: absolute;
   top: -20px;
   width: 100%;
@@ -86,7 +104,6 @@ body {
   font-size: 1em;
   border: white;
 }
-
 
 .components {
   display: flex;
