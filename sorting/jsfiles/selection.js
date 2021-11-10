@@ -2,7 +2,7 @@ const container = document.querySelector(".sub-container");
 const menu = document.getElementById("menu");
 const about = document.getElementById("about");
 const overlay = document.getElementById("overlay");
-const rest = document.getElementById("resetButtonId");
+const reset = document.getElementById("reset-button");
 
 menu.onclick = () => {
   about.style.left = "0px";
@@ -69,13 +69,13 @@ async function SelectionSort(delay = 100) {
   enableButtons();
 }
 
-var input = document.getElementById("inputArraySize");
+var input = document.getElementById("array-size");
 
 input.onchange = () => {
   generatebars(parseInt(input.value));
 };
 
-var speed = document.getElementById("inputSpeed");
+var speed = document.getElementById("speed");
 
 speed.onchange = () => {
   delay = parseInt(speed.value);
@@ -94,7 +94,7 @@ function waitforme() {
   });
 }
 
-rest.onclick = () => {
+reset.onclick = () => {
   window.location.reload();
 };
 
@@ -112,22 +112,22 @@ function generate() {
 
 // function to disable the buttons
 function disableButtons() {
-  document.getElementById("generateButtonId").disabled = true;
-  document.getElementById("generateButtonId").style.opacity = "60%";
-  document.getElementById("sortButtonId").disabled = true;
-  document.getElementById("sortButtonId").style.opacity = "60%";
-  document.getElementById("resetButtonId").disabled = true;
-  document.getElementById("resetButtonId").style.opacity = "60%";
+  document.getElementById("generate-button").disabled = true;
+  document.getElementById("generate-button").style.opacity = "60%";
+  document.getElementById("sort-button").disabled = true;
+  document.getElementById("sort-button").style.opacity = "60%";
+  //document.getElementById("reset-button").disabled = true;
+  //document.getElementById("reset-button").style.opacity = "60%";
 }
 
 // function to enable the buttons
 function enableButtons() {
-  document.getElementById("generateButtonId").disabled = false;
-  document.getElementById("generateButtonId").style.opacity = "100%";
-  document.getElementById("sortButtonId").disabled = false;
-  document.getElementById("sortButtonId").style.opacity = "100%";
-  document.getElementById("resetButtonId").disabled = false;
-  document.getElementById("resetButtonId").style.opacity = "100%";
+  document.getElementById("generate-button").disabled = false;
+  document.getElementById("generate-button").style.opacity = "100%";
+  document.getElementById("sort-button").disabled = false;
+  document.getElementById("sort-button").style.opacity = "100%";
+  //document.getElementById("reset-button").disabled = false;
+  //document.getElementById("reset-button").style.opacity = "100%";
 }
 
 //function to get width of scren
