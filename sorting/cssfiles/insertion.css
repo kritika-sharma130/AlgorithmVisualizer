@@ -91,5 +91,11 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 10px;
+}
+.displaySelectedValue {
+  color: white;
+  text-align: center;
+  margin-top: 2px;
+  height: 40px;
 }
