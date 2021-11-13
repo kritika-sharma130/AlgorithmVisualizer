@@ -1,34 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="style.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../cssfiles/linearsearch.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fruktur&family=Libre+Baskerville:wght@700&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
 
-<body>
-	<br />
-	<p class="header">Linear Search</p>
+  <body>
+    <br />
+    <div id="overlay"></div>
+    <section class="header">
+      <i class="fa fa-bars" id="menu" aria-hidden="true"></i>
+      <h1 class="heading">Linear Search Visualizer</h1>
+      <div class="color-chart">
+        <div class="color-description">
+          <div class="color-box" style="background: #aa1111"></div>
+          <div style="color: #aa1111">Unvisited elements</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #24315e"></div>
+          <div style="color: #24315e">Visited elements</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #00b589"></div>
+          <div style="color: #00b589">Element found</div>
+        </div>
+      </div>
+    </section>
+    
+    <div id="array"></div>
+    <br /><br />
 
+    <div class="searchFragment" style="text-align: center; color: white">
+      <label for="fname"> Number to be Searched: </label>
+      <input type="text" id="fname" name="fname" />
+      <br /><br />
+      <br />
+      <div id="text"></div>
+    </div>
+    <section class="container"><div class="sub-container"></div></section>
+    <section class="components">
+      <button class="button1" id="generate-button">Generate New Array</button>
+      <button class="button1" id="search-button">Search</button>
+      <button id="reset-button" class="button1">Reset</button>
+      <input
+        type="range"
+        aria-label="Input array size"
+        min="5"
+        max="24"
+        value="20"
+        id="array-size"
+      />
+      <input
+        type="range"
+        aria-label="Input speed<"
+        id="speed"
+        min="100"
+        max="2000"
+        value="300"
+      />
+    </section>
+    <section id="about">
+      <h1>Linear Search</h1>
+      <div>
+        <p style="text-align: justify">
+          The Linear Search algorithm sorts an array by repeatedly finding the
+          minimum element (considering ascending order) from unsorted part and
+          putting it at the beginning.
+        </p>
+        <p>The algorithm maintains two subarrays in a given array.</p>
+        <ol>
+          <li>The subarray which is already sorted.</li>
+          <li>Remaining subarray which is unsorted.</li>
+        </ol>
+        <p>
+          In every iteration of Linear Search, the minimum element (considering
+          ascending order) from the unsorted subarray is picked and moved to the
+          sorted subarray. Time Complexity: O(n2) as there are two nested loops.
+          Auxiliary Space: O(1)
+        </p>
+      </div>
+      <div style="border: 1px black solid; width: 80%; padding: 2%">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+          "
+        >
+          <div style="border: 1px black solid; padding: 2% 4%">C</div>
+          <div style="border: 1px black solid; padding: 2% 4%">C++</div>
+          <div style="border: 1px black solid; padding: 2% 4%">Java</div>
+          <div style="border: 1px black solid; padding: 2% 4%">Python</div>
+          <div style="border: 1px black solid; padding: 2% 4%">Javascript</div>
+        </div>
+        <pre>
+// C++ program for implementation of Linear Search
+          #include <bits/stdc++.h>
+          using namespace std;
+           
+          void swap(int *xp, int *yp)
+          {
+              int temp = *xp;
+              *xp = *yp;
+              *yp = temp;
+          }
+           
+          void selectionSort(int arr[], int n)
+          {
+              int i, j, min_idx;
+           
+              // One by one move boundary of unsorted subarray
+              for (i = 0; i < n-1; i++)
+              {
+                  // Find the minimum element in unsorted array
+                  min_idx = i;
+                  for (j = i+1; j < n; j++)
+                  if (arr[j] < arr[min_idx])
+                      min_idx = j;
+           
+                  // Swap the found minimum element with the first element
+                  swap(&arr[min_idx], &arr[i]);
+              }
+          }
+           
+          /* Function to print an array */
+          void printArray(int arr[], int size)
+          {
+              int i;
+              for (i=0; i < size; i++)
+                  cout << arr[i] << " ";
+              cout << endl;
+          }
+           
+          // Driver program to test above functions
+          int main()
+          {
+              int arr[] = {64, 25, 12, 22, 11};
+              int n = sizeof(arr)/sizeof(arr[0]);
+              selectionSort(arr, n);
+              cout << "Sorted array: \n";
+              printArray(arr, n);
+              return 0;
+          }
+        </pre>
+      </div>
+      
+    </section>
 
-	<div id="array"></div>
-	<br /><br />
-
-	<div style="text-align: center">
-	<label for="fname">
-		Number to be Searched:
-	</label>
-	<input type="text" id="fname" name="fname" />
-	<br /><br />
-	<button id="btn"
-			onclick="LinearSearch()">Search
-	</button>
-	<br />
-	<br />
-	<div id="text"></div>
-	</div>
-
-	<script src="script.js"></script>
-</body>
+    <script src="../jsfiles/linearsearch.js"></script>
+  </body>
 </html>
