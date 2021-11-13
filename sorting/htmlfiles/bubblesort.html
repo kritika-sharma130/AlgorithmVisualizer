@@ -108,11 +108,21 @@ int main()
       <button id="reset-button" class="button">Reset</button>
 
       <input
-        type="number"
+        type="range"
+        aria-label="Input array size"
+        min="5"
+        max="24"
+        value="20"
         id="array-size"
-        placeholder="Enter number of elements"
       />
-      <input type="number" id="speed" placeholder="Enter Speed (400ms)" />
+      <input
+        type="range"
+        aria-label="Input speed<"
+        id="speed"
+        min="100"
+        max="2000"
+        value="300"
+      />
     </section>
   </body>
 
