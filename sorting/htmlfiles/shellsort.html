@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Selection sort</title>
+    <link href="../cssfiles/shellsort.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fruktur&family=Libre+Baskerville:wght@700&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="overlay"></div>
+    <section class="header">
+      <i class="fa fa-bars" id="menu" aria-hidden="true"></i>
+      <h1 class="heading">Shell Sort Visualizer</h1>
+      <div class="color-chart">
+        <div class="color-description">
+          <div class="color-box" style="background: #aa1111"></div>
+          <div style="color: #aa1111">Unsorted array</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #00b589"></div>
+          <div style="color: #00b589">Sorted array</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #24315e"></div>
+          <div style="color: #24315e">Selected element</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #4657ce"></div>
+          <div style="color: #4657ce">Current element</div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <h1>Shell Sort</h1>
+      <div>
+        <p style="text-align: justify">
+            Shell sort is a highly efficient sorting algorithm and is based on insertion sort algorithm. This algorithm avoids large shifts as in case of insertion sort, if the smaller value is to the far right and has to be moved to the far left.
+            This algorithm is quite efficient for medium-sized data sets as its average and worst-case complexity of this algorithm depends on the gap sequence the best known is Ο(n), where n is the number of items. And the worst case space complexity is O(n).
+        </p>
+        
+      </div>
+      <div style="border: 1px black solid; width: 80%; padding: 2%">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+          "
+        >
+          <div style="border: 1px black solid; padding: 2% 4%">C</div>
+          <div style="border: 1px black solid; padding: 2% 4%">C++</div>
+          <div style="border: 1px black solid; padding: 2% 4%">Java</div>
+          <div style="border: 1px black solid; padding: 2% 4%">Python</div>
+          <div style="border: 1px black solid; padding: 2% 4%">Javascript</div>
+        </div>
+<pre>
+    // C++ implementation of Shell Sort
+#include <iostream>
+using namespace std;
+
+/* function to sort arr using shellSort */
+int shellSort(int arr[], int n)
+{
+	// Start with a big gap, then reduce the gap
+	for (int gap = n/2; gap > 0; gap /= 2)
+	{
+		// Do a gapped insertion sort for this gap size.
+		// The first gap elements a[0..gap-1] are already in gapped order
+		// keep adding one more element until the entire array is
+		// gap sorted
+		for (int i = gap; i  n; i += 1)
+		{
+			// add a[i] to the elements that have been gap sorted
+			// save a[i] in temp and make a hole at position i
+			int temp = arr[i];
+
+			// shift earlier gap-sorted elements up until the correct
+			// location for a[i] is found
+			int j;		
+			for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+				arr[j] = arr[j - gap];
+			
+			// put temp (the original a[i]) in its correct location
+			arr[j] = temp;
+		}
+	}
+	return 0;
+}
+</pre>
+
+        
+      </div>
+    </section>
+    <section class="container"><div class="sub-container"></div></section>
+    <section class="components">
+      <button class="button" id="generate-button">Generate New Array</button>
+      <button class="button" id="sort-button">Sort</button>
+      <button id="reset-button" class="button">Reset</button>
+      <input
+        type="range"
+        aria-label="Input array size"
+        min="5"
+        max="24"
+        value="20"
+        id="array-size"
+      />
+      <input
+        type="range"
+        aria-label="Input speed<"
+        id="speed"
+        min="100"
+        max="2000"
+        value="300"
+      />
+    </section>
+  </body>
+
+  <!-- linking index.js -->
+  <script src="../jsfiles/shellsort.js"></script>
+</html>
