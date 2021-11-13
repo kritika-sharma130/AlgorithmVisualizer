@@ -31,7 +31,7 @@ async function BubbleSort() {
             blocks[j + 1].style.backgroundColor = "#00B589";
         }
         blocks[blocks.length - i - 1]
-                .style.backgroundColor = "lightgreen"
+                .style.backgroundColor = "00b589"
     }
 }
 
