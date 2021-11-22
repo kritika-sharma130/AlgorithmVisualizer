@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Selection sort</title>
-    <link href="../cssfiles/selection.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../cssfiles/linearsearch.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,34 +17,64 @@
   </head>
 
   <body>
+    <br />
     <div id="overlay"></div>
     <section class="header">
       <i class="fa fa-bars" id="menu" aria-hidden="true"></i>
-      <h1 class="heading">Selection Sort Visualizer</h1>
+      <h1 class="heading">Linear Search Visualizer</h1>
       <div class="color-chart">
         <div class="color-description">
           <div class="color-box" style="background: #aa1111"></div>
-          <div style="color: #aa1111">Unsorted array</div>
-        </div>
-        <div class="color-description">
-          <div class="color-box" style="background: #00b589"></div>
-          <div style="color: #00b589">Sorted array</div>
+          <div style="color: #aa1111">Unvisited elements</div>
         </div>
         <div class="color-description">
           <div class="color-box" style="background: #24315e"></div>
-          <div style="color: #24315e">Selected element</div>
+          <div style="color: #24315e">Visited elements</div>
         </div>
         <div class="color-description">
-          <div class="color-box" style="background: #4657ce"></div>
-          <div style="color: #4657ce">Current element</div>
+          <div class="color-box" style="background: #00b589"></div>
+          <div style="color: #00b589">Element found</div>
         </div>
       </div>
     </section>
+    
+    <div id="array"></div>
+    <br /><br />
+
+    <div class="searchFragment" style="text-align: center; color: white">
+      <label for="fname"> Number to be Searched: </label>
+      <input type="text" id="fname" name="fname" />
+      <br /><br />
+      <br />
+      <div id="text"></div>
+    </div>
+    <section class="container"><div class="sub-container"></div></section>
+    <section class="components">
+      <button class="button1" id="generate-button">Generate New Array</button>
+      <button class="button1" id="search-button">Search</button>
+      <button id="reset-button" class="button1">Reset</button>
+      <input
+        type="range"
+        aria-label="Input array size"
+        min="5"
+        max="24"
+        value="20"
+        id="array-size"
+      />
+      <input
+        type="range"
+        aria-label="Input speed<"
+        id="speed"
+        min="100"
+        max="2000"
+        value="300"
+      />
+    </section>
     <section id="about">
-      <h1>Selection Sort</h1>
+      <h1>Linear Search</h1>
       <div>
         <p style="text-align: justify">
-          The selection sort algorithm sorts an array by repeatedly finding the
+          The Linear Search algorithm sorts an array by repeatedly finding the
           minimum element (considering ascending order) from unsorted part and
           putting it at the beginning.
         </p>
@@ -56,7 +84,7 @@
           <li>Remaining subarray which is unsorted.</li>
         </ol>
         <p>
-          In every iteration of selection sort, the minimum element (considering
+          In every iteration of Linear Search, the minimum element (considering
           ascending order) from the unsorted subarray is picked and moved to the
           sorted subarray. Time Complexity: O(n2) as there are two nested loops.
           Auxiliary Space: O(1)
@@ -77,7 +105,7 @@
           <div style="border: 1px black solid; padding: 2% 4%">Javascript</div>
         </div>
         <pre>
-// C++ program for implementation of selection sort
+// C++ program for implementation of Linear Search
           #include <bits/stdc++.h>
           using namespace std;
            
@@ -129,30 +157,7 @@
       </div>
       
     </section>
-    <section class="container"><div class="sub-container"></div></section>
-    <section class="components">
-      <button class="button" id="generate-button">Generate New Array</button>
-      <button class="button" id="sort-button">Sort</button>
-      <button id="reset-button" class="button">Reset</button>
-      <input
-        type="range"
-        aria-label="Input array size"
-        min="5"
-        max="24"
-        value="20"
-        id="array-size"
-      />
-      <input
-        type="range"
-        aria-label="Input speed<"
-        id="speed"
-        min="100"
-        max="2000"
-        value="300"
-      />
-    </section>
-  </body>
 
-  <!-- linking index.js -->
-  <script src="../jsfiles/selection.js"></script>
+    <script src="../jsfiles/linearsearch.js"></script>
+  </body>
 </html>

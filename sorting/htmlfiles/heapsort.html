@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Selection sort</title>
-    <link href="../cssfiles/selection.css" rel="stylesheet" />
+    <title>Heap sort</title>
+    <link href="../cssfiles/heapsort.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -22,7 +22,7 @@
     <div id="overlay"></div>
     <section class="header">
       <i class="fa fa-bars" id="menu" aria-hidden="true"></i>
-      <h1 class="heading">Selection Sort Visualizer</h1>
+      <h1 class="heading">Heap Sort Visualizer</h1>
       <div class="color-chart">
         <div class="color-description">
           <div class="color-box" style="background: #aa1111"></div>
@@ -43,23 +43,11 @@
       </div>
     </section>
     <section id="about">
-      <h1>Selection Sort</h1>
+      <h1>Heap Sort</h1>
       <div>
         <p style="text-align: justify">
-          The selection sort algorithm sorts an array by repeatedly finding the
-          minimum element (considering ascending order) from unsorted part and
-          putting it at the beginning.
-        </p>
-        <p>The algorithm maintains two subarrays in a given array.</p>
-        <ol>
-          <li>The subarray which is already sorted.</li>
-          <li>Remaining subarray which is unsorted.</li>
-        </ol>
-        <p>
-          In every iteration of selection sort, the minimum element (considering
-          ascending order) from the unsorted subarray is picked and moved to the
-          sorted subarray. Time Complexity: O(n2) as there are two nested loops.
-          Auxiliary Space: O(1)
+          Heapsort is a comparison-based sorting algorithm that uses a binary heap data structure. Like mergesort, heapsort has a running time of O(n\log n),O(nlogn), and like insertion sort, heapsort sorts in-place, so no extra space is needed during the sort.
+          The binary heap data structure allows the heapsort algorithm to take advantage of the heap's heap properties and the heapsort algorithm makes use of the efficient running time for inserting to and deleting from the heap.
         </p>
       </div>
       <div style="border: 1px black solid; width: 80%; padding: 2%">
@@ -77,57 +65,76 @@
           <div style="border: 1px black solid; padding: 2% 4%">Javascript</div>
         </div>
         <pre>
-// C++ program for implementation of selection sort
-          #include <bits/stdc++.h>
+          // C++ program for implementation of Heap Sort
+          #include <iostream>
+          
           using namespace std;
-           
-          void swap(int *xp, int *yp)
+          
+          // To heapify a subtree rooted with node i which is
+          // an index in arr[]. n is size of heap
+          void heapify(int arr[], int n, int i)
           {
-              int temp = *xp;
-              *xp = *yp;
-              *yp = temp;
+            int largest = i; // Initialize largest as root
+            int l = 2 * i + 1; // left = 2*i + 1
+            int r = 2 * i + 2; // right = 2*i + 2
+          
+            // If left child is larger than root
+            if (l < n && arr[l] > arr[largest])
+              largest = l;
+          
+            // If right child is larger than largest so far
+            if (r < n && arr[r] > arr[largest])
+              largest = r;
+          
+            // If largest is not root
+            if (largest != i) {
+              swap(arr[i], arr[largest]);
+          
+              // Recursively heapify the affected sub-tree
+              heapify(arr, n, largest);
+            }
           }
-           
-          void selectionSort(int arr[], int n)
+          
+          // main function to do heap sort
+          void heapSort(int arr[], int n)
           {
-              int i, j, min_idx;
-           
-              // One by one move boundary of unsorted subarray
-              for (i = 0; i < n-1; i++)
-              {
-                  // Find the minimum element in unsorted array
-                  min_idx = i;
-                  for (j = i+1; j < n; j++)
-                  if (arr[j] < arr[min_idx])
-                      min_idx = j;
-           
-                  // Swap the found minimum element with the first element
-                  swap(&arr[min_idx], &arr[i]);
-              }
+            // Build heap (rearrange array)
+            for (int i = n / 2 - 1; i >= 0; i--)
+              heapify(arr, n, i);
+          
+            // One by one extract an element from heap
+            for (int i = n - 1; i > 0; i--) {
+              // Move current root to end
+              swap(arr[0], arr[i]);
+          
+              // call max heapify on the reduced heap
+              heapify(arr, i, 0);
+            }
           }
-           
-          /* Function to print an array */
-          void printArray(int arr[], int size)
+          
+          /* A utility function to print array of size n */
+          void printArray(int arr[], int n)
           {
-              int i;
-              for (i=0; i < size; i++)
-                  cout << arr[i] << " ";
-              cout << endl;
+            for (int i = 0; i < n; ++i)
+              cout << arr[i] << " ";
+            cout << "\n";
           }
-           
-          // Driver program to test above functions
+          
+          // Driver code
           int main()
           {
-              int arr[] = {64, 25, 12, 22, 11};
-              int n = sizeof(arr)/sizeof(arr[0]);
-              selectionSort(arr, n);
-              cout << "Sorted array: \n";
-              printArray(arr, n);
-              return 0;
+            int arr[] = { 12, 11, 13, 5, 6, 7 };
+            int n = sizeof(arr) / sizeof(arr[0]);
+          
+            heapSort(arr, n);
+          
+            cout << "Sorted array is \n";
+            printArray(arr, n);
           }
+          
         </pre>
       </div>
-      
+      hikjj
     </section>
     <section class="container"><div class="sub-container"></div></section>
     <section class="components">
@@ -154,5 +161,5 @@
   </body>
 
   <!-- linking index.js -->
-  <script src="../jsfiles/selection.js"></script>
+  <script src="../jsfiles/heapsort.js"></script>
 </html>

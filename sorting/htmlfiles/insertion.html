@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Insertion sort</title>
+    <link href="../cssfiles/insertion.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fruktur&family=Libre+Baskerville:wght@700&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div id="overlay"></div>
+    <section class="header">
+      <i class="fa fa-bars" id="menu" aria-hidden="true"></i>
+      <h1 class="heading">Insertion Sort Visualizer</h1>
+      <div class="color-chart">
+        <div class="color-description">
+          <div class="color-box" style="background: #aa1111"></div>
+          <div style="color: #aa1111">Unsorted array</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #00b589"></div>
+          <div style="color: #00b589">Sorted array</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #4657ce"></div>
+          <div style="color: #4657ce">Selected element</div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      Insertion sort works similar to the sorting of playing cards in hands. It
+      is assumed that the first card is already sorted in the card game, and
+      then we select an unsorted card. If the selected unsorted card is greater
+      than the first card, it will be placed at the right side; otherwise, it
+      will be placed at the left side. Similarly, all unsorted cards are taken
+      and put in their exact place. The same approach is applied in insertion
+      sort. The idea behind the insertion sort is that first take one element,
+      iterate it through the sorted array. Although it is simple to use, it is
+      not appropriate for large data sets as the time complexity of insertion
+      sort in the average case and worst case is O(n2), where n is the number of
+      items. Insertion sort is less efficient than the other sorting algorithms
+      like heap sort, quick sort, merge sort, etc.
+    </section>
+    <section class="container"><div class="sub-container"></div></section>
+    <div
+      style=""
+      class="displaySelectedValue"
+      id="element"
+    ></div>
+    <section class="components">
+      <button class="button" id="generate-button">Generate New Array</button>
+      <button class="button" id="sort-button">Sort</button>
+      <button id="reset-button" class="button">Reset</button>
+      <input
+        type="range"
+        aria-label="Input array size"
+        min="5"
+        max="24"
+        value="20"
+        id="array-size"
+      />
+      <input
+        type="range"
+        aria-label="Input speed<"
+        id="speed"
+        min="100"
+        max="2000"
+        value="300"
+      />
+    </section>
+  </body>
+
+  <!-- linking index.js -->
+  <script src="../jsfiles/insertion.js"></script>
+</html>
