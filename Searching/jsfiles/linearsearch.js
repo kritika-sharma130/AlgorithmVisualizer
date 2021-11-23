@@ -1,18 +1,34 @@
-var container = document.getElementById("array");
 const subContainer = document.querySelector(".sub-container");
 const menu = document.getElementById("menu");
 const about = document.getElementById("about");
 const overlay = document.getElementById("overlay");
 const resetButton = document.getElementById("reset-button");
 const input = document.getElementById("array-size");
-var searchButton = document.getElementById("search-button");
+var sortButton = document.getElementById("sort-button");
 var generateButton = document.getElementById("generate-button");
 const speed = document.getElementById("speed");
-var delay = 300;
+
+const c = document.getElementById("C");
+const cPlusPlus = document.getElementById("C++");
+const java = document.getElementById("java");
+const python = document.getElementById("python");
+const javascript = document.getElementById("javascript");
+const codeSnippet = document.getElementById("code-snippet");
+
 const red = "#aa1111";
 const lightBlue = "#4657CE";
 const darkBlue = "#24315E";
 const green = "#00B589";
+
+var delay = 300;
+
+generateButton.onclick = () => {
+  generate();
+};
+
+sortButton.onclick = () => {
+  linearSearch();
+};
 
 // function to be executed on click of hamburger icon
 menu.onclick = () => {
@@ -26,14 +42,13 @@ overlay.onclick = () => {
   overlay.style.display = "none";
 };
 
-generateButton.onclick = () => {
-  generate();
+// function to be executed on click of resetButton
+resetButton.onclick = () => {
+  window.location.reload();
 };
-searchButton.onclick = () => {
-  LinearSearch();
-};
+
 input.onchange = () => {
-  generatearray(parseInt(input.value));
+  generateBars(parseInt(input.value));
   enableButtons();
 };
 
@@ -41,109 +56,283 @@ speed.onchange = () => {
   delay = parseInt(speed.value);
 };
 
-// Function to generate the array of blocks
-function generatearray() {
+//function which return promise of delay
+function waitforme() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("");
+    }, delay);
+  });
+}
+
+// function to generateBars of random value heights
+function generateBars(num = 20) {
   subContainer.innerHTML = "";
-  for (var i = 0; i < 20; i++) {
-    // Return a value from 1 to 100 (both inclusive)
-    var value = Math.ceil(Math.random() * 100);
-
-    // Creating element div
-    var array_ele = document.createElement("div");
-
-    // Adding class 'block' to div
-    array_ele.classList.add("block");
-
-    // Adding style to div
-    array_ele.style.height = `${value * 3}px`;
-    array_ele.style.transform = `translate(${i * 30}px)`;
-
-    // Creating label element for displaying
-    // size of particular block
-    var array_ele_label = document.createElement("label");
-    array_ele_label.classList.add("block_id");
-    array_ele_label.innerText = value;
-
-    // Appending created elements to index.html
-    array_ele.appendChild(array_ele_label);
-    container.appendChild(array_ele);
+  let widthOfOneBar = (getWidth() / 100) * 4;
+  subContainer.style.width = `${widthOfOneBar * num}px`;
+  for (let i = 0; i < num; i += 1) {
+    const value = Math.floor(Math.random() * 100) + 1;
+    const bar = document.createElement("div");
+    bar.classList.add("bar");
+    bar.style.height = `${value * 3}px`;
+    bar.style.width = `${(widthOfOneBar / 4) * 3}px`;
+    bar.style.transform = `translateX(${widthOfOneBar * i}px)`;
+    const barLabel = document.createElement("label");
+    barLabel.classList.add("bar-id");
+    barLabel.innerHTML = value;
+    bar.appendChild(barLabel);
+    subContainer.appendChild(bar);
   }
 }
-resetButton.onclick = () => {
-  window.location.reload();
-};
 
-// Asynchronous LinearSearch function
-async function LinearSearch(delay = 300) {
+// asynchronous function to perform "Linear Search"
+async function linearSearch() {
   disableButtons();
-  var blocks = document.querySelectorAll(".block");
-  var output = document.getElementById("text");
+  var blocks = document.querySelectorAll(".bar");
+  var output = document.getElementById("output");
 
   //Extracting the value entered by the user
   var num = document.getElementById("fname").value;
 
-  //Changing the color of all the blocks to red
+  //Changing the color of all the blocks to voilet
   for (var i = 0; i < blocks.length; i += 1) {
-    blocks[i].style.backgroundColor = "#aa1111";
+    blocks[i].style.backgroundColor = red;
   }
 
   output.innerText = "";
 
   var flag = 0;
-  // LinearSearch Algorithum
   for (var i = 0; i < blocks.length; i += 1) {
-    //Changing the color of current block to blue
-    blocks[i].style.backgroundColor = "#4657CE";
+    blocks[i].style.backgroundColor = darkBlue;
 
-    // To wait for .1 sec
-    await new Promise((resolve) =>
-      setTimeout(() => {
-        resolve();
-      }, delay)
-    );
+    await waitforme();
 
-    //Extracting the value of current block
     var value = Number(blocks[i].childNodes[0].innerHTML);
 
-    // To compare block value with entered value
     if (value == num) {
       flag = 1;
       output.innerText = "Element Found";
-      blocks[i].style.backgroundColor = "#00B589";
+      blocks[i].style.backgroundColor = green;
       break;
     } else {
-      // Changing the color to the previous one
-      blocks[i].style.backgroundColor = "#24315E";
+      blocks[i].style.backgroundColor = red;
     }
   }
-  //When element is not found in the array
   if (flag == 0) {
     output.innerText = "Element Not Found";
   }
   enableButtons();
 }
 
-// Calling generatearray function
-generatearray();
+// Call "generateBars" function
+generateBars();
 
+// function to generate new random array
 function generate() {
   if (input.value != "") {
-    generatearray(parseInt(input.value));
+    generateBars(parseInt(input.value));
   } else {
-    generatearray();
+    generateBars();
   }
 }
+
+// function to disable the buttons
 function disableButtons() {
   generateButton.disabled = true;
   generateButton.style.opacity = "60%";
-  searchButton.disabled = true;
-  searchButton.style.opacity = "60%";
+  sortButton.disabled = true;
+  sortButton.style.opacity = "60%";
 }
 
 // // function to enable the buttons
 function enableButtons() {
   generateButton.disabled = false;
   generateButton.style.opacity = "100%";
-  searchButton.disabled = false;
-  searchButton.style.opacity = "100%";
+  sortButton.disabled = false;
+  sortButton.style.opacity = "100%";
 }
+
+//function to get width of scren
+function getWidth() {
+  if (self.innerWidth) {
+    return self.innerWidth;
+  }
+  if (document.documentElement && document.documentElement.clientWidth) {
+    return document.documentElement.clientWidth;
+  }
+  if (document.body) {
+    return document.body.clientWidth;
+  }
+}
+
+c.onclick = () => {
+  console.log("c clicked");
+  console.log(codeSnippet.text);
+  codeSnippet.innerText = `// C code to linearly search x in arr[]. If x
+  // is present then return its location, otherwise
+  // return -1
+  
+  #include <stdio.h>
+  
+  int search(int arr[], int n, int x)
+  {
+    int i;
+    for (i = 0; i < n; i++)
+      if (arr[i] == x)
+        return i;
+    return -1;
+  }
+  
+  // Driver code
+  int main(void)
+  {
+    int arr[] = { 2, 3, 4, 10, 40 };
+    int x = 10;
+    int n = sizeof(arr) / sizeof(arr[0]);
+  
+    // Function call
+    int result = search(arr, n, x);
+    (result == -1)
+      ? printf("Element is not present in array")
+      : printf("Element is present at index %d", result);
+    return 0;
+  }
+  `;
+};
+
+cPlusPlus.onclick = () => {
+  codeSnippet.innerText = `// C++ code to linearly search x in arr[]. If x
+  // is present then return its location, otherwise
+  // return -1
+  
+  #include <iostream>
+  using namespace std;
+  
+  int search(int arr[], int n, int x)
+  {
+    int i;
+    for (i = 0; i < n; i++)
+      if (arr[i] == x)
+        return i;
+    return -1;
+  }
+  
+  // Driver code
+  int main(void)
+  {
+    int arr[] = { 2, 3, 4, 10, 40 };
+    int x = 10;
+    int n = sizeof(arr) / sizeof(arr[0]);
+  
+    // Function call
+    int result = search(arr, n, x);
+    (result == -1)
+      ? cout << "Element is not present in array"
+      : cout << "Element is present at index " << result;
+    return 0;
+  }
+  `;
+};
+
+java.onclick = () => {
+  codeSnippet.innerText = `// Java code for linearly searching x in arr[]. If x
+  // is present then return its location, otherwise
+  // return -1
+  
+  class GFG
+  {
+    public static int search(int arr[], int x)
+    {
+      int n = arr.length;
+      for (int i = 0; i < n; i++)
+      {
+        if (arr[i] == x)
+          return i;
+      }
+      return -1;
+    }
+  
+    // Driver code
+    public static void main(String args[])
+    {
+      int arr[] = { 2, 3, 4, 10, 40 };
+      int x = 10;
+  
+      // Function call
+      int result = search(arr, x);
+      if (result == -1)
+        System.out.print(
+          "Element is not present in array");
+      else
+        System.out.print("Element is present at index "
+                + result);
+    }
+  }
+  
+  `;
+};
+
+python.onclick = () => {
+  codeSnippet.innerText = `# Python3 code to linearly search x in arr[].
+  # If x is present then return its location,
+  # otherwise return -1
+  
+  
+  def search(arr, n, x):
+  
+    for i in range(0, n):
+      if (arr[i] == x):
+        return i
+    return -1
+  
+  
+  # Driver Code
+  arr = [2, 3, 4, 10, 40]
+  x = 10
+  n = len(arr)
+  
+  # Function call
+  result = search(arr, n, x)
+  if(result == -1):
+    print("Element is not present in array")
+  else:
+    print("Element is present at index", result)
+  
+  `;
+};
+
+javascript.onclick = () => {
+  codeSnippet.innerText = `
+<script>
+
+// Javascript code to linearly search x in arr[]. If x
+// is present then return its location, otherwise
+// return -1
+
+function search(arr, n, x)
+{
+	let i;
+	for (i = 0; i < n; i++)
+		if (arr[i] == x)
+			return i;
+	return -1;
+}
+
+// Driver code
+
+	let arr = [ 2, 3, 4, 10, 40 ];
+	let x = 10;
+	let n = arr.length;
+
+	// Function call
+	let result = search(arr, n, x);
+	(result == -1)
+		? document.write("Element is not present in array")
+		: document.write("Element is present at index " + result);
+
+// This code is contributed by Manoj
+
+</script>
+
+  `;
+};
