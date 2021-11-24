@@ -3,26 +3,162 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../cssfiles/binarysearch.css" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Binary Search</title>
+    <link href="../cssfiles/binarysearch.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fruktur&family=Libre+Baskerville:wght@700&family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
 
   <body>
-    <br />
-    <p class="header">Binary Search</p>
-
-    <div id="array"></div>
-    <br /><br />
-
-    <div style="text-align: center">
-      <label for="fname"> Number to be Searched: </label>
+    <div id="overlay"></div>
+    <section class="header">
+      <i class="fa fa-bars" id="menu" aria-hidden="true"></i>
+      <h1 class="heading">Binary search Visualizer</h1>
+      <div class="color-chart">
+        <div class="color-description">
+          <div class="color-box" style="background: #aa1111"></div>
+          <div style="color: #aa1111">Given array</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #00b589"></div>
+          <div style="color: #00b589">Searched element</div>
+        </div>
+        <div class="color-description">
+          <div class="color-box" style="background: #24315e"></div>
+          <div style="color: #24315e">Current element</div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <h1>Binary Search</h1>
+      <div>
+        <p style="text-align: justify">
+          
+        </p>
+        <p></p>
+        <ol>
+          
+        </ol>
+        <p>
+          
+        </p>
+      </div>
+      <div style="border: 1px black solid; width: 80%; padding: 2%">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+          "
+        >
+          <div style="border: 1px black solid; padding: 2% 4%" id="C">C</div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="C++">
+            C++
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="java">
+            Java
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="python">
+            Python
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="javascript">
+            Javascript
+          </div>
+        </div>
+        <pre id="code-snippet">
+  // C program to implement recursive Binary Search
+  #include <stdio.h>
+  
+  // A recursive binary search function. It returns
+  // location of x in given array arr[l..r] is present,
+  // otherwise -1
+  int binarySearch(int arr[], int l, int r, int x)
+  {
+    if (r >= l) {
+      int mid = l + (r - l) / 2;
+  
+      // If the element is present at the middle
+      // itself
+      if (arr[mid] == x)
+        return mid;
+  
+      // If element is smaller than mid, then
+      // it can only be present in left subarray
+      if (arr[mid] > x)
+        return binarySearch(arr, l, mid - 1, x);
+  
+      // Else the element can only be present
+      // in right subarray
+      return binarySearch(arr, mid + 1, r, x);
+    }
+  
+    // We reach here when element is not
+    // present in array
+    return -1;
+  }
+  
+  int main(void)
+  {
+    int arr[] = { 2, 3, 4, 10, 40 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 10;
+    int result = binarySearch(arr, 0, n - 1, x);
+    (result == -1)
+      ? printf("Element is not present in array")
+      : printf("Element is present at index %d", result);
+    return 0;
+  }
+        </pre>
+      </div>
+    </section>
+    <section class="container"><div class="sub-container"></div></section>
+    <div class="components">
+      <label for="fname" style="color: white">
+        Please enter number to be Searched:
+      </label>
       <input type="text" id="fname" name="fname" />
-      <br /><br />
-      <button id="btn" onclick="BinarySearch()">Search</button>
-      <br />
-      <br />
-      <div id="text"></div>
+      <div id="output" style="color:#00b589; font-size: 1rem; border: #00b589 1px solid;"></div>
     </div>
-
-    <script src="../jsfiles/binarysearch.js"></script>
+    <section class="components">
+      <button class="button" id="generate-button">Generate New Array</button>
+      <button class="button" id="sort-button">Search</button>
+      <button id="reset-button" class="button">Reset</button>
+      <div style="color: white;display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <label for="size" style="font-size: 0.75rem;">Input array size</label>
+        <input
+          type="range"
+          aria-label="Input array size"
+          min="5"
+          max="24"
+          value="20"
+          name="size"
+          id="array-size"
+        />
+      </div>
+      <div style=" color: white;display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <label for="spped"style="font-size: 0.75rem;" >Delay time(speed)</label>
+        <input
+          type="range"
+          name="speed"
+          aria-label="Input speed"
+          id="speed"
+          min="100"
+          max="2000"
+          value="300"
+        />
+      </div>
+    </section>
   </body>
+
+  <!-- linking index.js -->
+  <script src="../jsfiles/binarysearch.js"></script>
 </html>
