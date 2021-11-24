@@ -38,6 +38,36 @@
         </div>
       </div>
     </section>
+
+    <section class="container"><div class="sub-container"></div></section>
+
+    <div class="searchFragment" style="text-align: center; color: white">
+      <label for="fname"> Number to be Searched: </label>
+      <input type="text" id="fname" name="fname" />
+      <div id="text"></div>
+    </div>
+    <section class="components">
+      <button class="button1" id="generate-button">Generate New Array</button>
+      <button class="button1" id="search-button">Search</button>
+      <button id="reset-button" class="button1">Reset</button>
+      <input
+        type="range"
+        aria-label="Input array size"
+        min="5"
+        max="24"
+        value="20"
+        id="array-size"
+      />
+      <input
+        type="range"
+        aria-label="Input speed"
+        id="speed"
+        min="100"
+        max="2000"
+        value="300"
+      />
+    </section>
+
     <section id="about">
       <h1>Linear Search</h1>
       <div>
