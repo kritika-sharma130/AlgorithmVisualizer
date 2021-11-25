@@ -39,25 +39,101 @@
       </div>
     </section>
     <section id="about">
-      Insertion sort works similar to the sorting of playing cards in hands. It
-      is assumed that the first card is already sorted in the card game, and
-      then we select an unsorted card. If the selected unsorted card is greater
-      than the first card, it will be placed at the right side; otherwise, it
-      will be placed at the left side. Similarly, all unsorted cards are taken
-      and put in their exact place. The same approach is applied in insertion
-      sort. The idea behind the insertion sort is that first take one element,
-      iterate it through the sorted array. Although it is simple to use, it is
-      not appropriate for large data sets as the time complexity of insertion
-      sort in the average case and worst case is O(n2), where n is the number of
-      items. Insertion sort is less efficient than the other sorting algorithms
-      like heap sort, quick sort, merge sort, etc.
+      <h1>Insertion Sort</h1>
+      <div>
+        <p style="text-align: justify">
+          Insertion sort is a simple sorting algorithm that works similar to the
+          way you sort playing cards in your hands. The array is virtually split
+          into a sorted and an unsorted part. Values from the unsorted part are
+          picked and placed at the correct position in the sorted part.
+        </p>
+        <p>To sort an array of size n in ascending order:</p>
+        <ol>
+          <li>1: Iterate from arr[1] to arr[n] over the array.</li>
+          <li>2: Compare the current element (key) to its predecessor.</li>
+          <li>
+            3: If the key element is smaller than its predecessor, compare it to
+            the elements before. Move the greater elements one position up to
+            make space for the swapped element.
+          </li>
+        </ol>
+        <p>
+          Time Complexity: O(n^2) <br />
+          Auxiliary Space: O(1)
+        </p>
+      </div>
+      <div style="border: 1px black solid; width: 80%; padding: 2%">
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+          "
+        >
+          <div style="border: 1px black solid; padding: 2% 4%" id="C">C</div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="C++">
+            C++
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="java">
+            Java
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="python">
+            Python
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="javascript">
+            Javascript
+          </div>
+        </div>
+        <pre id="code-snippet">
+// C program for insertion sort
+#include <math.h>
+#include <stdio.h>
+
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n)
+{
+  int i, key, j;
+  for (i = 1; i < n; i++) {
+    key = arr[i];
+    j = i - 1;
+
+    /* Move elements of arr[0..i-1], that are
+    greater than key, to one position ahead
+    of their current position */
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+    arr[j + 1] = key;
+  }
+}
+
+// A utility function to print an array of size n
+void printArray(int arr[], int n)
+{
+  int i;
+  for (i = 0; i < n; i++)
+    printf("%d ", arr[i]);
+  printf("\n");
+}
+
+/* Driver program to test insertion sort */
+int main()
+{
+  int arr[] = { 12, 11, 13, 5, 6 };
+  int n = sizeof(arr) / sizeof(arr[0]);
+
+  insertionSort(arr, n);
+  printArray(arr, n);
+
+  return 0;
+}
+          
+        </pre>
+      </div>
     </section>
     <section class="container"><div class="sub-container"></div></section>
-    <div
-      style=""
-      class="displaySelectedValue"
-      id="element"
-    ></div>
+    <div style="text-align: center; color: white; height: 40px;" class="displaySelectedValue" id="element"></div>
     <section class="components">
       <button class="button" id="generate-button">Generate New Array</button>
       <button class="button" id="sort-button">Sort</button>
