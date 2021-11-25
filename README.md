@@ -29,7 +29,6 @@ This tool will prove to be of great help for the students who are struggling to 
 
 
 
-
 ##  Advantages
 
 - Beginner friendly
@@ -53,6 +52,9 @@ This tool will prove to be of great help for the students who are struggling to 
 -  [Deepanshi Mittal](https://github.com/deepanshi-mitta)
 
 -  [Komal Bindal](https://github.com/komal-bindal)
+
+
+
 
 
 
