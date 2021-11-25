@@ -38,12 +38,14 @@ function register() {
       let user = firebase.auth().currentUser;
       firebase
         .database()
-        .ref("user/" + user.uid)
+        .ref("users/" + user.uid)
         .set({
           name: full_name,
           email: emailId,
+        })
+        .then(function () {
+          window.location.href = "./home.html";
         });
-      window.location.href = "../index.html";
     })
     .catch((e) => {
       console.log(e);
@@ -75,7 +77,7 @@ function login() {
       console.log("hello");
     })
     .then(function () {
-      window.location.href = "../index.html";
+      window.location.href = "./home.html";
     })
     .catch(function (error) {
       var error_code = error.code;
