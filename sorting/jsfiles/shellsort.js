@@ -84,8 +84,8 @@ function generateBars(num = 20) {
   }
 }
 
-// asynchronous function to perform "Selection Sort"
-async function ShellSort(delay = 200) {
+// asynchronous function to perform "Shell Sort"
+async function ShellSort() {
   disableButtons();
   let bars = document.querySelectorAll(".bar");
 
