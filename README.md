@@ -16,6 +16,18 @@ This tool will prove to be of great help for the students who are struggling to 
 ![Screenshot (1058)](https://user-images.githubusercontent.com/67831569/143504001-01fe254e-8f09-4074-866d-a60bb998f5fb.png)
 
 
+# ALGORITHMS
+![Screenshot (1059)](https://user-images.githubusercontent.com/67831569/143504351-76e8a5bf-b87a-4913-89c5-c4a651f2aa8f.png)
+![Screenshot (1060)](https://user-images.githubusercontent.com/67831569/143504363-ae705f3f-61e8-4f1c-9ef0-85505df7822e.png)
+![Screenshot (1061)](https://user-images.githubusercontent.com/67831569/143504366-3c1ae804-adbf-474e-b683-021b9486eaad.png)
+![Screenshot (1062)](https://user-images.githubusercontent.com/67831569/143504378-f4599e09-37f3-4875-9e3f-fa98b215b85e.png)
+![Screenshot (1063)](https://user-images.githubusercontent.com/67831569/143504385-af7b3e02-f58c-415e-8c64-2a70d894f6c9.png)
+![Screenshot (1064)](https://user-images.githubusercontent.com/67831569/143504390-6d27f9af-6d66-43b0-ae58-28608805612c.png)
+![Screenshot (1065)](https://user-images.githubusercontent.com/67831569/143504397-4d0c0ff4-a007-49d9-90b1-ddaf9d2166fd.png)
+
+
+
+
 
 
 ##  Advantages
