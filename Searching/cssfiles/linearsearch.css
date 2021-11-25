@@ -76,7 +76,6 @@ body {
   position: relative;
   margin: 0 auto;
   align-items: center;
-
 }
 
 .bar {
@@ -99,9 +98,7 @@ body {
 }
 .button {
   padding: 12px;
-
   font-weight: bolder;
-  /* background: linear-gradient(#a4ade9, #4657ce); */
   background: linear-gradient(#fd7674, #e9322e);
   color: black;
   border-radius: 10px;
@@ -116,11 +113,12 @@ body {
   margin-top: 50px;
 }
 #about {
+  padding-left: 30px;
   background-color: white;
   height: 100vh;
   width: 50%;
   position: fixed;
-  overflow:scroll ;
+  overflow: scroll;
   top: 0px;
   transition: all 2s linear;
   left: -55%;
