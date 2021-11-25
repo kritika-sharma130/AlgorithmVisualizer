@@ -46,10 +46,15 @@
       <h1>Shell Sort</h1>
       <div>
         <p style="text-align: justify">
-            Shell sort is a highly efficient sorting algorithm and is based on insertion sort algorithm. This algorithm avoids large shifts as in case of insertion sort, if the smaller value is to the far right and has to be moved to the far left.
-            This algorithm is quite efficient for medium-sized data sets as its average and worst-case complexity of this algorithm depends on the gap sequence the best known is Ο(n), where n is the number of items. And the worst case space complexity is O(n).
+          ShellSort is mainly a variation of Insertion Sort. In insertion sort,
+          we move elements only one position ahead. When an element has to be
+          moved far ahead, many movements are involved. The idea of shellSort is
+          to allow exchange of far items. In shellSort, we make the array
+          h-sorted for a large value of h. We keep reducing the value of h until
+          it becomes 1. An array is said to be h-sorted if all sublists of every
+          h’th element is sorted.
         </p>
-        
+        <p>Time complexity of above implementation of shellsort is O(n2).</p>
       </div>
       <div style="border: 1px black solid; width: 80%; padding: 2%">
         <div
@@ -59,48 +64,85 @@
             justify-content: space-around;
           "
         >
-          <div style="border: 1px black solid; padding: 2% 4%">C</div>
-          <div style="border: 1px black solid; padding: 2% 4%">C++</div>
-          <div style="border: 1px black solid; padding: 2% 4%">Java</div>
-          <div style="border: 1px black solid; padding: 2% 4%">Python</div>
-          <div style="border: 1px black solid; padding: 2% 4%">Javascript</div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="C">C#</div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="C++">
+            C++
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="java">
+            Java
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="python">
+            Python
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="javascript">
+            Javascript
+          </div>
         </div>
-<pre>
-    // C++ implementation of Shell Sort
-#include <iostream>
-using namespace std;
+        <pre id="code-snippet">
+// C# implementation of ShellSort
+using System;
 
-/* function to sort arr using shellSort */
-int shellSort(int arr[], int n)
+class ShellSort
 {
-	// Start with a big gap, then reduce the gap
-	for (int gap = n/2; gap > 0; gap /= 2)
-	{
-		// Do a gapped insertion sort for this gap size.
-		// The first gap elements a[0..gap-1] are already in gapped order
-		// keep adding one more element until the entire array is
-		// gap sorted
-		for (int i = gap; i  n; i += 1)
-		{
-			// add a[i] to the elements that have been gap sorted
-			// save a[i] in temp and make a hole at position i
-			int temp = arr[i];
+  /* An utility function to
+  print array of size n*/
+  static void printArray(int []arr)
+  {
+    int n = arr.Length;
+    for (int i=0; i<n; ++i)
+    Console.Write(arr[i] + " ");
+    Console.WriteLine();
+  }
 
-			// shift earlier gap-sorted elements up until the correct
-			// location for a[i] is found
-			int j;		
-			for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
-				arr[j] = arr[j - gap];
-			
-			// put temp (the original a[i]) in its correct location
-			arr[j] = temp;
-		}
-	}
-	return 0;
-}
-</pre>
+  /* function to sort arr using shellSort */
+  int sort(int []arr)
+  {
+    int n = arr.Length;
 
-        
+    // Start with a big gap,
+    // then reduce the gap
+    for (int gap = n/2; gap > 0; gap /= 2)
+    {
+      // Do a gapped insertion sort for this gap size.
+      // The first gap elements a[0..gap-1] are already
+      // in gapped order keep adding one more element
+      // until the entire array is gap sorted
+      for (int i = gap; i < n; i += 1)
+      {
+        // add a[i] to the elements that have
+        // been gap sorted save a[i] in temp and
+        // make a hole at position i
+        int temp = arr[i];
+
+        // shift earlier gap-sorted elements up until
+        // the correct location for a[i] is found
+        int j;
+        for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
+          arr[j] = arr[j - gap];
+
+        // put temp (the original a[i])
+        // in its correct location
+        arr[j] = temp;
+      }
+    }
+    return 0;
+  }
+
+  // Driver method
+  public static void Main()
+  {
+    int []arr = {12, 34, 54, 2, 3};
+    Console.Write("Array before sorting :\n");
+    printArray(arr);
+
+    ShellSort ob = new ShellSort();
+    ob.sort(arr);
+
+    Console.Write("Array after sorting :\n");
+    printArray(arr);
+  }
+}          
+        </pre>
       </div>
     </section>
     <section class="container"><div class="sub-container"></div></section>
