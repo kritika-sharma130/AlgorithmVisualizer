@@ -1,5 +1,4 @@
 var container = document.getElementById("array");
-var sortButton = document.getElementById("sort-button");
 const menu = document.getElementById("menu");
 const about = document.getElementById("about");
 const overlay = document.getElementById("overlay");
