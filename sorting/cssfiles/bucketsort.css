@@ -88,16 +88,6 @@
    bottom: 10%;
     /* background: linear-gradient(#f8a145, #f07900); */
   }
-    .button {
-        padding: 12px;
-        font-weight: bolder;
-        /* background: linear-gradient(#a4ade9, #4657ce); */
-        background: linear-gradient(#fd7674, #e9322e);
-        color: black;
-        border-radius: 10px;
-        font-size: 1em;
-        border: white;
-      }
     #array {
     background-color: black;
     height: 265px;
