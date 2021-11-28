@@ -33,10 +33,9 @@ This tool will prove to be of great help for the students who are struggling to 
 ![Screenshot (1065)](https://user-images.githubusercontent.com/67831569/143504397-4d0c0ff4-a007-49d9-90b1-ddaf9d2166fd.png)
 ![Screenshot (1083)](https://user-images.githubusercontent.com/67831569/143748848-c3337aeb-894a-42cb-852e-19b9899f1798.png)
 ![Screenshot (1084)](https://user-images.githubusercontent.com/67831569/143748940-b6907d31-b822-4d02-a39c-c1e18d3a9661.png)
-
-
-
-
+![Screenshot (1085)](https://user-images.githubusercontent.com/67831569/143749318-305a19eb-257f-4e45-b0d4-1dfbe31e0fd7.png)
+![Screenshot (1086)](https://user-images.githubusercontent.com/67831569/143749432-7466c94b-c31f-4dff-a4a3-23cde222afe5.png)
+![Screenshot (1087)](https://user-images.githubusercontent.com/67831569/143749517-66962b28-dde8-4a29-9a8e-b5658f7acbbe.png)
 
 
 ##  Advantages
