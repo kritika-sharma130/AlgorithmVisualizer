@@ -494,11 +494,7 @@ async function HeapSort(n = 20) {
     blocks[i].style.backgroundColor = "#00b589";
     await waitforme();
 
-    await new Promise((resolve) =>
-      setTimeout(() => {
-        resolve();
-      }, 250)
-    );
+    await waitforme();
     await Heapify(i, 0);
   }
   enableButtons();
