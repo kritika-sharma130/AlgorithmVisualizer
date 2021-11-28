@@ -289,7 +289,7 @@ nav ul li:hover{
 }
 
 .card:not(:first-child) {
-  margin-left: -130px;
+  margin-left: -160px;
 }
 
 .card-header h2 {
