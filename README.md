@@ -31,6 +31,9 @@ This tool will prove to be of great help for the students who are struggling to 
 ![Screenshot (1063)](https://user-images.githubusercontent.com/67831569/143504385-af7b3e02-f58c-415e-8c64-2a70d894f6c9.png)
 ![Screenshot (1064)](https://user-images.githubusercontent.com/67831569/143504390-6d27f9af-6d66-43b0-ae58-28608805612c.png)
 ![Screenshot (1065)](https://user-images.githubusercontent.com/67831569/143504397-4d0c0ff4-a007-49d9-90b1-ddaf9d2166fd.png)
+![Screenshot (1083)](https://user-images.githubusercontent.com/67831569/143748848-c3337aeb-894a-42cb-852e-19b9899f1798.png)
+![Screenshot (1084)](https://user-images.githubusercontent.com/67831569/143748940-b6907d31-b822-4d02-a39c-c1e18d3a9661.png)
+
 
 
 
