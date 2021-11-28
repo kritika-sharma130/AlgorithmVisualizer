@@ -14,10 +14,10 @@ This tool will prove to be of great help for the students who are struggling to 
 ![Screenshot (1079)](https://user-images.githubusercontent.com/67831569/143746933-d5b02d6d-7726-4a2b-b651-a2c113393e77.png)
 ![Screenshot (1080)](https://user-images.githubusercontent.com/67831569/143747030-6493a8ac-de91-4919-9ecc-ede838274088.png)
 ![Screenshot (1081)](https://user-images.githubusercontent.com/67831569/143747122-858a622f-649a-4dc1-98aa-a749006366c2.png)
-
 ![Screenshot (1067)](https://user-images.githubusercontent.com/67831569/143503837-f72a2799-dd3e-4a0b-9a17-e9ee049f2955.png)
 ![Screenshot (1054)](https://user-images.githubusercontent.com/67831569/143503951-5b43abb7-6634-4068-8c3f-655e4cb61208.png)
 ![Screenshot (1055)](https://user-images.githubusercontent.com/67831569/143503968-4ef8403f-c274-43c2-82a4-825badd1de03.png)
+![Screenshot (1082)](https://user-images.githubusercontent.com/67831569/143748312-a6b0e77e-f36c-4354-8b9f-770b7d48f014.png)
 ![Screenshot (1056)](https://user-images.githubusercontent.com/67831569/143503981-a032a21a-3b58-4338-893b-739e2f679bff.png)
 ![Screenshot (1057)](https://user-images.githubusercontent.com/67831569/143504106-c13ed95a-8906-4bdf-9454-da6aa3a614e4.png)
 ![Screenshot (1058)](https://user-images.githubusercontent.com/67831569/143504001-01fe254e-8f09-4074-866d-a60bb998f5fb.png)
