@@ -75,6 +75,34 @@ header {
   margin: 0;
   padding: 0;
 }
+nav{
+  color: #FFF;
+  float: right;
+  margin:30px 90px;
+}
+nav ul{
+  list-style: none;
+}
+nav ul li {
+  float: left;
+  transition: .3s;
+}
+nav ul li a{
+  text-decoration: none;
+  color: #EFEEF5;
+  transition: .5;
+  font-size: 15px;
+  margin-left:16px;
+}
+nav ul li:hover a{
+  text-decoration: none;
+  color: #591BC5;;
+}
+nav ul li:hover{
+ background: #EFEEF5;
+  text-decoration: none;
+  transform: skew(15deg);
+}
 
 .header-content {
   margin-top: 25%;
