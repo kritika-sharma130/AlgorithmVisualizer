@@ -8,6 +8,13 @@ This tool will prove to be of great help for the students who are struggling to 
 # SNAPSHOTS
  
 ![Screenshot (1052)](https://user-images.githubusercontent.com/67831569/143503915-e0508962-f76c-4eed-96fb-1f04e797e91d.png)
+![Screenshot (1076)](https://user-images.githubusercontent.com/67831569/143746595-402575e9-a77b-40b5-a5d0-18ba90548b38.png)
+![Screenshot (1077)](https://user-images.githubusercontent.com/67831569/143746721-43e1de7c-66e6-46ca-a58b-7660802a4b23.png)
+![Screenshot (1078)](https://user-images.githubusercontent.com/67831569/143746845-701003a0-75f5-458b-820d-f43b6007c22e.png)
+![Screenshot (1079)](https://user-images.githubusercontent.com/67831569/143746933-d5b02d6d-7726-4a2b-b651-a2c113393e77.png)
+![Screenshot (1080)](https://user-images.githubusercontent.com/67831569/143747030-6493a8ac-de91-4919-9ecc-ede838274088.png)
+![Screenshot (1081)](https://user-images.githubusercontent.com/67831569/143747122-858a622f-649a-4dc1-98aa-a749006366c2.png)
+
 ![Screenshot (1067)](https://user-images.githubusercontent.com/67831569/143503837-f72a2799-dd3e-4a0b-9a17-e9ee049f2955.png)
 ![Screenshot (1054)](https://user-images.githubusercontent.com/67831569/143503951-5b43abb7-6634-4068-8c3f-655e4cb61208.png)
 ![Screenshot (1055)](https://user-images.githubusercontent.com/67831569/143503968-4ef8403f-c274-43c2-82a4-825badd1de03.png)
