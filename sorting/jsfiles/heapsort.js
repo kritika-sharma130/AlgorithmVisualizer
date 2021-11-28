@@ -90,7 +90,12 @@ c.onclick = () => {
       printArray(arr);
     }
   }
-    }`;
+  
+  // This code is contributed
+  // by Akanksha Rai(Abby_akku)
+  
+  
+ `;
 };
 
 cPlusPlus.onclick = () => {
@@ -160,11 +165,13 @@ cPlusPlus.onclick = () => {
     cout << "Sorted array is \n";
     printArray(arr, n);
   }
+  
   `;
 };
 
 java.onclick = () => {
-  codeSnippet.innerText = `// Java program for implementation of Heap Sort
+  codeSnippet.innerText = `
+  // Java program for implementation of Heap Sort
   public class HeapSort {
     public void sort(int arr[])
     {
@@ -235,6 +242,7 @@ java.onclick = () => {
       printArray(arr);
     }
   }
+  
   `;
 };
 
@@ -290,7 +298,9 @@ python.onclick = () => {
   print("Sorted array is")
   for i in range(n):
     print("%d" % arr[i]),
-   `;
+  # This code is contributed by Mohit Kumra
+  
+  `;
 };
 
 javascript.onclick = () => {
@@ -364,6 +374,9 @@ javascript.onclick = () => {
     document.write( "Sorted array is <br>");
     printArray(arr, n);
   
+  
+  // This code is contributed by SoumikMondal
+  
   </script>
   
   `;
@@ -399,6 +412,7 @@ overlay.onclick = () => {
 // function to be executed on click of resetButton
 resetButton.onclick = () => {
   window.location.reload();
+  
 };
 
 input.onchange = () => {
@@ -420,7 +434,7 @@ function waitforme() {
 }
 
 // function to generateBars of random value heights
-function generateBars(num = 20) {
+function generateBars(num=20) {
   subContainer.innerHTML = "";
   let widthOfOneBar = (getWidth() / 100) * 4;
   subContainer.style.width = `${widthOfOneBar * num}px`;
@@ -442,19 +456,19 @@ function generateBars(num = 20) {
 // asynchronous function to perform "Selection Sort"
 async function Heapify(n, i) {
   var blocks = document.querySelectorAll(".bar");
-  var largest = i;
-  var l = 2 * i + 1;
-  var r = 2 * i + 2;
+  var largest = i; 
+  var l = 2 * i + 1; 
+  var r = 2 * i + 2; 
   if (
     l < n &&
     Number(blocks[l].childNodes[0].innerHTML) >
-      Number(blocks[largest].childNodes[0].innerHTML)
+    Number(blocks[largest].childNodes[0].innerHTML)
   )
     largest = l;
   if (
     r < n &&
     Number(blocks[r].childNodes[0].innerHTML) >
-      Number(blocks[largest].childNodes[0].innerHTML)
+    Number(blocks[largest].childNodes[0].innerHTML)
   )
     largest = r;
   if (largest != i) {
@@ -462,22 +476,23 @@ async function Heapify(n, i) {
     var temp2 = blocks[i].childNodes[0].innerText;
     blocks[i].style.height = blocks[largest].style.height;
     blocks[largest].style.height = temp1;
-    blocks[largest].style.backgroundColor = "#24315E";
+    blocks[largest].style.backgroundColor="#24315E";
     await waitforme();
-    blocks[l].style.backgroundColor = "#4657CE";
-    blocks[i].childNodes[0].innerText = blocks[largest].childNodes[0].innerText;
+    blocks[l].style.backgroundColor="#4657CE";
+    blocks[i].childNodes[0].innerText =
+    blocks[largest].childNodes[0].innerText;
     blocks[largest].childNodes[0].innerText = temp2;
-
+  
     await new Promise((resolve) =>
-      setTimeout(() => {
-        resolve();
-      }, 250)
+    setTimeout(() => {
+      resolve();
+    }, 250)
     );
     await Heapify(n, largest);
   }
-}
-async function HeapSort(n = 20) {
-  disableButtons();
+  }
+  async function HeapSort(n=20) {
+    disableButtons();
   var blocks = document.querySelectorAll(".bar");
   for (var i = n / 2 - 1; i >= 0; i--) {
     await Heapify(n, i);
@@ -486,19 +501,26 @@ async function HeapSort(n = 20) {
     var temp1 = blocks[i].style.height;
     var temp2 = blocks[i].childNodes[0].innerText;
     blocks[i].style.height = blocks[0].style.height;
-    blocks[i].style.backgroundColor = "#00b589";
+    blocks[i].style.backgroundColor="#00b589";
     await waitforme();
     blocks[0].style.height = temp1;
-    blocks[i].childNodes[0].innerText = blocks[0].childNodes[0].innerText;
+    blocks[i].childNodes[0].innerText =
+    blocks[0].childNodes[0].innerText;
     blocks[0].childNodes[0].innerText = temp2;
-    blocks[i].style.backgroundColor = "#00b589";
+    blocks[i].style.backgroundColor="#00b589";
     await waitforme();
 
-    await waitforme();
+  
+    await new Promise((resolve) =>
+    setTimeout(() => {
+      resolve();
+    }, 250)
+    );
+
     await Heapify(i, 0);
   }
   enableButtons();
-}
+  }
 // Call "generateBars" function
 generateBars();
 
@@ -540,16 +562,18 @@ function getWidth() {
   }
 }
 
-function changecolor() {
-  const code = document.querySelector(".code");
-  code.innerHTML = "";
+function changecolor(){
+  const code=document.querySelector(".code");
+  code.innerHTML="";
 }
-function changecode() {
-  const btn = document.getElementById("#btn");
-  const code1 = document.querySelector(".code");
-  btn.addEventListener("click", () => {
-    if (code1.style.display == "none") {
-      code1.style.display = "block";
+function changecode(){
+  const btn=document.getElementById("#btn");
+  const code1=document.querySelector(".code");
+  btn.addEventListener('click',() => {
+    if(code1.style.display=='none'){
+      code1.style.display='block';
     }
-  });
+
+  })
 }
+

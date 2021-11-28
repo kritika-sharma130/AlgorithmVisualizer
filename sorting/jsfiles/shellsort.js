@@ -13,7 +13,6 @@ const java = document.getElementById("java");
 const python = document.getElementById("python");
 const javascript = document.getElementById("javascript");
 const codeSnippet = document.getElementById("code-snippet");
-
 const red = "#aa1111";
 const lightBlue = "#4657CE";
 const darkBlue = "#24315E";
@@ -84,8 +83,8 @@ function generateBars(num = 20) {
   }
 }
 
-// asynchronous function to perform "Selection Sort"
-async function ShellSort(delay = 200) {
+// asynchronous function to perform "Shell Sort"
+async function ShellSort() {
   disableButtons();
   let bars = document.querySelectorAll(".bar");
 
