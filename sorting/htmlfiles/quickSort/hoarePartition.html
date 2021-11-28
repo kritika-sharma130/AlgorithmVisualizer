@@ -43,8 +43,29 @@
       </div>
     </section>
     <section id="about">
-      <h1>Quick Sort (Hoare's Partition)</h1>
-      <div></div>
+      <h1>Quick Sort</h1>
+      <div>
+        <p style="text-align: justify">
+          Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks
+          an element as pivot and partitions the given array around the picked
+          pivot. There are many different versions of quickSort that pick pivot
+          in different ways.
+          <ul>
+            <li>Always pick first element as pivot.</li>
+            <li> Always pick
+              last element as pivot (implemented below)</li>
+            <li> Pick a random element as
+              pivot.</li>
+            <li> Pick median as pivot. </li>
+          </ul>
+          The key process in quickSort is
+          partition(). Target of partitions is, given an array and an element x
+          of array as pivot, put x at its correct position in sorted array and
+          put all smaller elements (smaller than x) before x, and put all
+          greater elements (greater than x) after x. All this should be done in
+          linear time.
+        </p>
+      </div>
       <div style="border: 1px black solid; width: 80%; padding: 2%">
         <div
           style="
@@ -53,15 +74,103 @@
             justify-content: space-around;
           "
         >
-          <div style="border: 1px black solid; padding: 2% 4%">C</div>
-          <div style="border: 1px black solid; padding: 2% 4%">C++</div>
-          <div style="border: 1px black solid; padding: 2% 4%">Java</div>
-          <div style="border: 1px black solid; padding: 2% 4%">Python</div>
-          <div style="border: 1px black solid; padding: 2% 4%">Javascript</div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="C">C#</div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="C++">
+            C++
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="java">
+            Java
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="python">
+            Python
+          </div>
+          <div style="border: 1px black solid; padding: 2% 4%" id="javascript">
+            Javascript
+          </div>
         </div>
-        <pre></pre>
+        <pre id="code-snippet">
+// C# implementation of QuickSort
+// using Hoare's partition scheme
+using System;
+
+class GFG {
+
+  /* This function takes first element as pivot, and
+  places all the elements smaller than the pivot on the
+  left side and all the elements greater than the pivot
+  on the right side. It returns the index of the last
+  element on the smaller side*/
+  static int partition(int[] arr, int low, int high)
+  {
+    int pivot = arr[low];
+    int i = low - 1, j = high + 1;
+
+    while (true) {
+      // Find leftmost element greater
+      // than or equal to pivot
+      do {
+        i++;
+      } while (arr[i] < pivot);
+
+      // Find rightmost element smaller
+      // than or equal to pivot
+      do {
+        j--;
+      } while (arr[j] > pivot);
+
+      // If two pointers met.
+      if (i >= j)
+        return j;
+      int temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      // swap(arr[i], arr[j]);
+    }
+  }
+
+  /* The main function that
+  implements QuickSort
+  arr[] --> Array to be sorted,
+  low --> Starting index,
+  high --> Ending index */
+  static void quickSort(int[] arr, int low, int high)
+  {
+    if (low < high) {
+      /* pi is partitioning index,
+      arr[p] is now at right place */
+      int pi = partition(arr, low, high);
+
+      // Separately sort elements before
+      // partition and after partition
+      quickSort(arr, low, pi);
+      quickSort(arr, pi + 1, high);
+    }
+  }
+
+  /* Function to print an array */
+  static void printArray(int[] arr, int n)
+  {
+    for (int i = 0; i < n; i++)
+      Console.Write(" " + arr[i]);
+    Console.WriteLine();
+  }
+
+  // Driver Code
+  static public void Main()
+  {
+    int[] arr = { 10, 7, 8, 9, 1, 5 };
+    int n = arr.Length;
+    quickSort(arr, 0, n - 1);
+    Console.WriteLine("Sorted array: ");
+    printArray(arr, n);
+  }
+}
+
+          
+        </pre>
       </div>
     </section>
+
     <section class="container"><div class="sub-container"></div></section>
     <section class="components">
       <button class="button" id="generate-button">Generate New Array</button>

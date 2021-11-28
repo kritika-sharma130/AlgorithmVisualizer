@@ -8,6 +8,401 @@ var sortButton = document.getElementById("sort-button");
 var generateButton = document.getElementById("generate-button");
 const speed = document.getElementById("speed");
 
+const c = document.getElementById("C");
+const cPlusPlus = document.getElementById("C++");
+const java = document.getElementById("java");
+const python = document.getElementById("python");
+const javascript = document.getElementById("javascript");
+const codeSnippet = document.getElementById("code-snippet");
+
+c.onclick = () => {
+  console.log("c clicked");
+  console.log(codeSnippet.text);
+  codeSnippet.innerText = `// C# implementation of QuickSort
+  // using Hoare's partition scheme
+  using System;
+  
+  class GFG {
+  
+    /* This function takes first element as pivot, and
+    places all the elements smaller than the pivot on the
+    left side and all the elements greater than the pivot
+    on the right side. It returns the index of the last
+    element on the smaller side*/
+    static int partition(int[] arr, int low, int high)
+    {
+      int pivot = arr[low];
+      int i = low - 1, j = high + 1;
+  
+      while (true) {
+        // Find leftmost element greater
+        // than or equal to pivot
+        do {
+          i++;
+        } while (arr[i] < pivot);
+  
+        // Find rightmost element smaller
+        // than or equal to pivot
+        do {
+          j--;
+        } while (arr[j] > pivot);
+  
+        // If two pointers met.
+        if (i >= j)
+          return j;
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        // swap(arr[i], arr[j]);
+      }
+    }
+  
+    /* The main function that
+    implements QuickSort
+    arr[] --> Array to be sorted,
+    low --> Starting index,
+    high --> Ending index */
+    static void quickSort(int[] arr, int low, int high)
+    {
+      if (low < high) {
+        /* pi is partitioning index,
+        arr[p] is now at right place */
+        int pi = partition(arr, low, high);
+  
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi);
+        quickSort(arr, pi + 1, high);
+      }
+    }
+  
+    /* Function to print an array */
+    static void printArray(int[] arr, int n)
+    {
+      for (int i = 0; i < n; i++)
+        Console.Write(" " + arr[i]);
+      Console.WriteLine();
+    }
+  
+    // Driver Code
+    static public void Main()
+    {
+      int[] arr = { 10, 7, 8, 9, 1, 5 };
+      int n = arr.Length;
+      quickSort(arr, 0, n - 1);
+      Console.WriteLine("Sorted array: ");
+      printArray(arr, n);
+    }
+  }  
+  `;
+};
+
+cPlusPlus.onclick = () => {
+  codeSnippet.innerText = `/* C++ implementation of QuickSort using Hoare's
+  partition scheme. */
+  #include <bits/stdc++.h>
+  using namespace std;
+  
+  /* This function takes first element as pivot, and places
+  all the elements smaller than the pivot on the left side
+  and all the elements greater than the pivot on
+  the right side. It returns the index of the last element
+  on the smaller side*/
+  int partition(int arr[], int low, int high)
+  {
+    int pivot = arr[low];
+    int i = low - 1, j = high + 1;
+  
+    while (true) {
+      // Find leftmost element greater than
+      // or equal to pivot
+      do {
+        i++;
+      } while (arr[i] < pivot);
+  
+      // Find rightmost element smaller than
+      // or equal to pivot
+      do {
+        j--;
+      } while (arr[j] > pivot);
+  
+      // If two pointers met.
+      if (i >= j)
+        return j;
+  
+      swap(arr[i], arr[j]);
+    }
+  }
+  
+  /* The main function that implements QuickSort
+  arr[] --> Array to be sorted,
+  low --> Starting index,
+  high --> Ending index */
+  void quickSort(int arr[], int low, int high)
+  {
+    if (low < high) {
+      /* pi is partitioning index, arr[p] is now
+      at right place */
+      int pi = partition(arr, low, high);
+  
+      // Separately sort elements before
+      // partition and after partition
+      quickSort(arr, low, pi);
+      quickSort(arr, pi + 1, high);
+    }
+  }
+  
+  /* Function to print an array */
+  void printArray(int arr[], int n)
+  {
+    for (int i = 0; i < n; i++)
+      printf("%d ", arr[i]);
+    printf("\n");
+  }
+  
+  // Driver Code
+  int main()
+  {
+    int arr[] = { 10, 7, 8, 9, 1, 5 };
+    int n = sizeof(arr) / sizeof(arr[0]);
+    quickSort(arr, 0, n - 1);
+    printf("Sorted array: \n");
+    printArray(arr, n);
+    return 0;
+  }  
+      `;
+};
+
+java.onclick = () => {
+  codeSnippet.innerText = `// Java implementation of QuickSort
+  // using Hoare's partition scheme
+  import java.io.*;
+  
+  class GFG {
+  
+    /* This function takes first element as pivot, and
+    places all the elements smaller than the pivot on the
+    left side and all the elements greater than the pivot
+    on the right side. It returns the index of the last
+    element on the smaller side*/
+    static int partition(int[] arr, int low, int high)
+    {
+      int pivot = arr[low];
+      int i = low - 1, j = high + 1;
+  
+      while (true) {
+        // Find leftmost element greater
+        // than or equal to pivot
+        do {
+          i++;
+        } while (arr[i] < pivot);
+  
+        // Find rightmost element smaller
+        // than or equal to pivot
+        do {
+          j--;
+        } while (arr[j] > pivot);
+  
+        // If two pointers met.
+        if (i >= j)
+          return j;
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        // swap(arr[i], arr[j]);
+      }
+    }
+  
+    /* The main function that
+    implements QuickSort
+    arr[] --> Array to be sorted,
+    low --> Starting index,
+    high --> Ending index */
+    static void quickSort(int[] arr, int low, int high)
+    {
+      if (low < high) {
+        /* pi is partitioning index,
+        arr[p] is now at right place */
+        int pi = partition(arr, low, high);
+  
+        // Separately sort elements before
+        // partition and after partition
+        quickSort(arr, low, pi);
+        quickSort(arr, pi + 1, high);
+      }
+    }
+  
+    /* Function to print an array */
+    static void printArray(int[] arr, int n)
+    {
+      for (int i = 0; i < n; i++)
+        System.out.print(" " + arr[i]);
+      System.out.println();
+    }
+  
+    // Driver Code
+    static public void main(String[] args)
+    {
+      int[] arr = { 10, 7, 8, 9, 1, 5 };
+      int n = arr.length;
+      quickSort(arr, 0, n - 1);
+      System.out.println("Sorted array: ");
+      printArray(arr, n);
+    }
+  }
+  
+     `;
+};
+
+python.onclick = () => {
+  codeSnippet.innerText = `''' Python implementation of QuickSort using Hoare's
+  partition scheme. '''
+  
+  ''' This function takes first element as pivot, and places
+    all the elements smaller than the pivot on the left side
+    and all the elements greater than the pivot on
+    the right side. It returns the index of the last element
+    on the smaller side '''
+  
+  
+  def partition(arr, low, high):
+  
+    pivot = arr[low]
+    i = low - 1
+    j = high + 1
+  
+    while (True):
+  
+      # Find leftmost element greater than
+      # or equal to pivot
+      i += 1
+      while (arr[i] < pivot):
+        i += 1
+  
+      # Find rightmost element smaller than
+      # or equal to pivot
+      j -= 1
+      while (arr[j] > pivot):
+        j -= 1
+  
+      # If two pointers met.
+      if (i >= j):
+        return j
+  
+      arr[i], arr[j] = arr[j], arr[i]
+  
+  
+  ''' The main function that implements QuickSort
+  arr --> Array to be sorted,
+  low --> Starting index,
+  high --> Ending index '''
+  
+  
+  def quickSort(arr, low, high):
+    ''' pi is partitioning index, arr[p] is now
+    at right place '''
+    if (low < high):
+  
+      pi = partition(arr, low, high)
+  
+      # Separately sort elements before
+      # partition and after partition
+      quickSort(arr, low, pi)
+      quickSort(arr, pi + 1, high)
+  
+  
+  ''' Function to pran array '''
+  
+  
+  def printArray(arr, n):
+    for i in range(n):
+      print(arr[i], end=" ")
+    print()
+  
+  
+  # Driver code
+  arr = [10, 7, 8, 9, 1, 5]
+  n = len(arr)
+  quickSort(arr, 0, n - 1)
+  print("Sorted array:")
+  printArray(arr, n)
+  `;
+};
+
+javascript.onclick = () => {
+  codeSnippet.innerText = `<script>
+	// Javascript implementation of QuickSort
+	// using Hoare's partition scheme
+	
+	/* This function takes first element as pivot, and
+	places all the elements smaller than the pivot on the
+	left side and all the elements greater than the pivot
+	on the right side. It returns the index of the last
+	element on the smaller side*/
+	function partition(arr, low, high)
+	{
+		let pivot = arr[low];
+		let i = low - 1, j = high + 1;
+
+		while (true) {
+			// Find leftmost element greater
+			// than or equal to pivot
+			do {
+				i++;
+			} while (arr[i] < pivot);
+
+			// Find rightmost element smaller
+			// than or equal to pivot
+			do {
+				j--;
+			} while (arr[j] > pivot);
+
+			// If two pointers met.
+			if (i >= j)
+				return j;
+			let temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			// swap(arr[i], arr[j]);
+		}
+	}
+
+	/* The main function that
+	implements QuickSort
+	arr[] --> Array to be sorted,
+	low --> Starting index,
+	high --> Ending index */
+	function quickSort(arr, low, high)
+	{
+		if (low < high) {
+			/* pi is partitioning index,
+			arr[p] is now at right place */
+			let pi = partition(arr, low, high);
+
+			// Separately sort elements before
+			// partition and after partition
+			quickSort(arr, low, pi);
+			quickSort(arr, pi + 1, high);
+		}
+	}
+
+	/* Function to print an array */
+	function printArray(arr, n)
+	{
+		for (let i = 0; i < n; i++)
+			document.write(" " + arr[i]);
+		document.write("</br>");
+	}
+	
+	let arr = [ 10, 7, 8, 9, 1, 5 ];
+	let n = arr.length;
+	quickSort(arr, 0, n - 1);
+	document.write("Sorted array: " + "</br>");
+	printArray(arr, n);
+	
+</script>
+  `;
+};
 const red = "#aa1111";
 const lightBlue = "#4657CE";
 const darkBlue = "#24315E";
@@ -136,8 +531,8 @@ async function hoare_partition(l, r, delay = 700) {
     // or equal to pivot
     do {
       i++;
-      if (i - 1 >= l) blocks[i - 1].style.backgroundColor = "red";
-      blocks[i].style.backgroundColor = "yellow";
+      if (i - 1 >= l) blocks[i - 1].style.backgroundColor = darkBlue;
+      blocks[i].style.backgroundColor = lightBlue;
       //To wait for 700 milliseconds
       await waitforme();
     } while (Number(blocks[i].childNodes[0].innerHTML) < pivot);
@@ -146,16 +541,15 @@ async function hoare_partition(l, r, delay = 700) {
     // or equal to pivot
     do {
       j--;
-      if (j + 1 <= r) blocks[j + 1].style.backgroundColor = "green";
-      blocks[j].style.backgroundColor = "yellow";
+      if (j + 1 <= r) blocks[j + 1].style.backgroundColor = "#6b5b95";
+      blocks[j].style.backgroundColor = lightBlue;
       //To wait for 700 milliseconds
       await waitforme();
     } while (Number(blocks[j].childNodes[0].innerHTML) > pivot);
 
     // If two pointers met.
     if (i >= j) {
-      for (var k = 0; k < size; k++)
-        blocks[k].style.backgroundColor = "#6b5b95";
+      for (var k = 0; k < size; k++) blocks[k].style.backgroundColor = green;
       return j;
     }
 
